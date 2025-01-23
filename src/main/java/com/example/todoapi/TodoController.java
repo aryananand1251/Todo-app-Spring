@@ -1,7 +1,8 @@
 package com.example.todoapi;
 
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,4 +18,16 @@ public class TodoController {
         todolist.add(new Todo(2,true,"Todo 2",2));
     }
 
+    @GetMapping("/todos")
+    public  List<Todo> getTodos(){
+        return  todolist;
+    }
+
+
+        @PostMapping("/todos")
+        @ResponseStatus(HttpStatus.CREATED)
+        public Todo createTodo(@RequestBody Todo newTodo){
+        todolist.add(newTodo);
+        return newTodo;
+        }
 }
