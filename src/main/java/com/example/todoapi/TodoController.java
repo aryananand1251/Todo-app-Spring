@@ -19,6 +19,7 @@ public class TodoController {
         todolist= new ArrayList<>();
         todolist.add(new Todo(1,false,"Todo 1",1));
         todolist.add(new Todo(2,true,"Todo 2",2));
+        System.out.println("Exexuted");
     }
 
     @GetMapping
